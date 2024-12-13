@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Advanced XML Generator v5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="translatable" data-key="appTitle">Advanced XML Generator v5</h1>
+        <p class="translatable" data-key="appSubtitle">Create files dynamically with advanced features.</p>
+    </header>
+    <main>
+        <div class="toolbar">
+            <label class="translatable" data-key="languageLabel" for="langSelect">Language:</label>
+            <select id="langSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+            
+            <label class="translatable" data-key="templateLabel" for="templateSelect">Template:</label>
+            <select id="templateSelect">
+                <option value="blank">-- None / Blank --</option>
+                <option value="webApp">Web Application Template</option>
+                <option value="dataPipeline">Data Pipeline Template</option>
+            </select>
+            
+            <label class="translatable" data-key="importLabel" for="importXML">Import XML:</label>
+            <input type="file" id="importXML" accept=".xml">
+        </div>
+
+        <form id="projectForm">
+            <!-- Project Details -->
+            <section>
+                <h2 class="translatable" data-key="projectDetails">Project Details</h2>
+                <label class="translatable" data-key="projectTitle" for="title">Project Title:</label>
+                <input type="text" id="title" placeholder="Enter project title" required>
+                
+                <label class="translatable" data-key="projectDesc" for="description">Description:</label>
+                <textarea id="description" placeholder="Enter project description" required></textarea>
+                
+                <label class="translatable" data-key="versionNumber" for="version">Version Number:</label>
+                <input type="text" id="version" placeholder="e.g., 1.0.0" value="1.0.0">
+            </section>
+            
+            <!-- Features -->
+            <section>
+                <h2 class="translatable" data-key="featuresSection">Features</h2>
+                <p class="translatable" data-key="featuresHint">Add, remove, and reorder features.</p>
+                
+                <div id="featuresContainer">
+                    <div class="feature">
+                        <label class="translatable" data-key="featureName">Feature Name:</label>
+                        <input type="text" name="featureName" placeholder="Enter feature name" required>
+                        
+                        <label class="translatable" data-key="featureDesc">Feature Description:</label>
+                        <textarea name="featureDescription" placeholder="Enter feature description" required></textarea>
+                        
+                        <div class="feature-controls">
+                            <button type="button" class="move-up translatable" data-key="moveUpBtn">Up</button>
+                            <button type="button" class="move-down translatable" data-key="moveDownBtn">Down</button>
+                            <button type="button" class="remove-feature translatable" data-key="removeFeatureBtn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="addFeature" class="translatable" data-key="addFeatureBtn">Add Feature</button>
+            </section>
+            
+            <!-- Design Theme & Customization -->
+            <section>
+                <h2 class="translatable" data-key="designSection">Design & UI Customization</h2>
+                <label class="translatable" data-key="primaryColorLabel" for="primaryColor">Primary Color:</label>
+                <input type="color" id="primaryColor" value="#2e2e2e">
+                
+                <label class="translatable" data-key="secondaryColorLabel" for="secondaryColor">Secondary Color:</label>
+                <input type="color" id="secondaryColor" value="#1a1a1a">
+                
+                <label class="translatable" data-key="accentColorLabel" for="accentColor">Accent Color:</label>
+                <input type="color" id="accentColor" value="#5a5a5a">
+                
+                <label class="translatable" data-key="fontSizeLabel" for="fontSize">Font Size (px):</label>
+                <input type="number" id="fontSize" value="14">
+                
+                <label class="translatable" data-key="borderRadiusLabel" for="borderRadius">Border Radius (px):</label>
+                <input type="number" id="borderRadius" value="4">
+            </section>
+            
+            <!-- Language and Tools -->
+            <section>
+                <h2 class="translatable" data-key="langToolsSection">Language and Tools</h2>
+                <label class="translatable" data-key="selectLang" for="language">Select Programming Language:</label>
+                <select id="language">
+                    <option value="Apex">Apex</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="C#">C#</option>
+                    <option value="Go">Go</option>
+                    <option value="Java">Java</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="Liquid (Shopify)">Liquid (Shopify)</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python" selected>Python</option>
+                    <option value="Ruby on Rails">Ruby on Rails</option>
+                    <option value="Rust">Rust</option>
+                    <option value="Scala">Scala</option>
+                    <option value="Swift">Swift</option>
+                    <option value="TypeScript">TypeScript</option>
+                </select>
+                
+                <label class="translatable" data-key="toolsLabel" for="tools">Additional Libraries/Tools:</label>
+                <input type="text" id="tools" placeholder="e.g., Pillow, Pandas">
+            </section>
+            
+            <!-- Additional Settings -->
+            <section>
+                <h2 class="translatable" data-key="additionalSettingsSection">Additional Settings</h2>
+                <label class="translatable" data-key="platformLabel" for="platform">Target Platform:</label>
+                <select id="platform">
+                    <option value="Web">Web</option>
+                    <option value="Desktop">Desktop</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="CLI">Command-line</option>
+                    <option value="Remove">Remove</option>
+                </select>
+                
+                <label class="translatable" data-key="userGoalsLabel" for="userGoals">End-User Goals:</label>
+                <textarea id="userGoals" placeholder="Describe the user's goals"></textarea>
+                
+                <label class="translatable" data-key="formatsLabel" for="formats">Supported File Formats:</label>
+                <input type="text" id="formats" placeholder="e.g., .csv, .jpg, .mp4">
+                
+                <label class="translatable" data-key="authLabel" for="auth">Require Authentication:</label>
+                <input type="checkbox" id="auth">
+                
+                <label class="translatable" data-key="deploymentLabel" for="deployment">Deployment Preferences:</label>
+                <select id="deployment">
+                    <option value="AWS">AWS</option>
+                    <option value="Azure">Azure</option>
+                    <option value="GoogleCloud">Google Cloud</option>
+                    <option value="OnPremise">On-Premise</option>
+                    <option value="Remove">Remove</option>
+                </select>
+                
+                <div class="api-integration">
+                    <label class="translatable" data-key="externalAPILabel" for="useExternalAPI">Use External API:</label>
+                    <input type="checkbox" id="useExternalAPI">
+                    
+                    <label class="translatable" data-key="apiEndpointLabel" for="apiEndpoint">API Endpoint:</label>
+                    <input type="text" id="apiEndpoint" placeholder="https://api.example.com/data">
+                </div>
+            </section>
+            
+            <!-- Output Format -->
+            <section>
+                <h2>Output Format</h2>
+                <label for="outputFormat">Select Output Format:</label>
+                <select id="outputFormat">
+                    <option value="xml" selected>XML</option>
+                    <option value="json">JSON</option>
+                    <option value="markdown">Markdown</option>
+                </select>
+            </section>
+            
+            <button type="submit" class="translatable" data-key="generateBtn">Generate Output</button>
+        </form>
+        
+        <section id="outputSection" class="hidden">
+            <h2 class="translatable" data-key="generatedXML">Generated Output</h2>
+            <button id="toggleTreeView" class="translatable" data-key="toggleTreeViewBtn">Toggle Tree View</button>
+            
+            <div id="treeView" class="hidden"></div>
+            <textarea id="outputText" readonly></textarea>
+            <p id="tokenCountDisplay"></p>
+            <button id="downloadOutput" class="translatable" data-key="downloadXMLBtn">Download File</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 XML Generator Tool</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
