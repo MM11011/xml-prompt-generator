@@ -1,5 +1,4 @@
-🧰 Project Name
-Advanced XML Meta Prompt Generator v5
+🧰 Meta Prompt Generator v5
 
 🔍 Description
 This project is a browser-based XML generator that helps users create structured XML files dynamically. It's designed with flexibility in mind — useful for developers, writers, or system architects who need to define structured data like prompts, configurations, or templates.
