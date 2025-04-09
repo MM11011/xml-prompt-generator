@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Simple language dictionary
     const translations = {
         en: {
-            appTitle: "Advanced XML Generator v5",
+            appTitle: "Meta Prompt Generator v5",
             appSubtitle: "Create files dynamically with advanced features.",
             languageLabel: "Language:",
             templateLabel: "Template:",
