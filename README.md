@@ -18,7 +18,7 @@
 
 📝 Project Metadata Inputs
 
-    Title, Description, and Version Number fields help document project basics.
+    Title,Description,and Version Number fields help document project basics.
 
 ⚙️ Feature Management Interface
 
